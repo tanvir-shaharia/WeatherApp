@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Black_shade1"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+
+    </ProgressBar>
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/Bag_ground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/Black_shade1">
+
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/city_name"
+            android:text="City Name"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"
+            android:padding="20dp">
+
+        </TextView>
+        <LinearLayout
+            android:id="@+id/liner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/city_name"
+            android:weightSum="5">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_lay"
+                android:layout_width="0dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.5"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:hint="Enter City Name"
+                app:boxStrokeColor="@android:color/transparent"
+                android:padding="5dp"
+                android:textColorHint="@color/white"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Edit_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:id="@+id/Search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:src="@drawable/search"
+                app:tint="@color/white"
+                android:background="@android:color/transparent">
+
+            </ImageView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/liner"
+            android:gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:text="23"
+            android:textSize="70dp"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/temp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher"
+
+            />
+        <TextView
+            android:id="@+id/condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weather_icon"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="condition"
+            android:textColor="@color/white"
+            android:textSize="14sp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/text_todays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Today's Weather Forcast"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:layout_above="@+id/Re_View"
+            android:textStyle="bold">
+
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Re_View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            tools:listitem="@layout/weather_item"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/errorL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:textAlignment="center"
+            android:text="Opps,looks like there's no internet connection ,Cheak your internet connection &amp; retry ">
+
+        </TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>
